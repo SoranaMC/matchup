@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Events List</title>
+</head>
+<body>
+
+<header>
+  <h1>Event Details</h1>
+</header>
+
+<section layout:fragment="content">
+  <h2>Created events</h2>
+
+  <div class="row">
+    <div class="col-sm-4" th:each="event : ${events}">
+      <div class="card">
+        <img class="card-img-top"
+             src="https://media.gq.com/photos/59e76aaaf964810d9a9b8d2f/16:9/w_2560%2Cc_limit/GQ_50Greatest_final_v2.jpg"
+             alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${event.eventName}">name</h5>
+          <p class="card-text">Date: <span th:text="${event.eventDate}">date</span></p>
+          <p class="card-text">Location: <span th:text="${event.location}">location</span></p>
+          <p class="card-text">Players: <span
+              th:text="${event.eventAttenders.size()}"></span> of <span
+              th:text="${event.playersNeeded}"></span> players
+          </p>
+          <a th:href="@{/event/{id}(id=${event.id})}" class="btn btn-primary">See event</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

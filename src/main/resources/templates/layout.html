@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title layout:title-pattern="${CONTENT_TITLE - $LAYOUT_TITLE}"></title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        rel="stylesheet">
+  <style>
+        .hero-section {
+            background: url('https://images.inc.com/uploaded_files/image/1920x1080/getty_494581822_130796.jpg')no-repeat center center;-->'
+          background-size: cover;
+            color: white;
+            padding: 100px 0;
+        }
+        .page {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .content {
+          flex: 1;
+        }
+          .text-shadow {
+            font-family: 'Helvetica', sans-serif;
+            text-shadow: 2px 2px 4px #000;
+        }
+  </style>
+</head>
+<body class="page">
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="container text-center">
+    <h1 class="text-shadow">Welcome to the Matchup App</h1>
+    <p class="text-shadow">Find and organize your matches effortlessly</p>
+    <a href="/event/create" class="btn btn-primary btn-lg">Create a new event</a>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/home">Matchup</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/event/list">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/list">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="container my-4 content" layout:fragment="content">
+  <p>Join the community of football enthusiasts and participate in matches near you.</p>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2023 Football Matchup App</p>
+</footer>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

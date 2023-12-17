@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Matchup Site</title>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to Our Matchup Site</h1>
+</header>
+
+<section th:fragment="content">
+  <h2>Upcoming Matchups</h2>
+  <ul>
+    <li th:each="matchup : ${matchups}">
+
+    </li>
+  </ul>
+</section>
+
+<section th:fragment="home-content" layout:fragment="content">
+  <h2>Explore Exciting Sports</h2>
+  <p>Discover the thrill of upcoming matchups in various sports!</p>
+  <div>
+    <img
+        src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/default/dw5927c613/Roots/Blog/Blog-Header/528x352/19-03-Blog-Fitness-Training-Football-Soccer.jpg?sw=600"
+        alt="Football Image">
+    <img src="https://via.placeholder.com/400x200" alt="Basketball Image">
+    <img src="https://via.placeholder.com/400x200" alt="Soccer Image">
+    <!-- Replace with your actual image URLs -->
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2023 Matchup Site</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>User Details</title>
+</head>
+<body>
+<section layout:fragment="content">
+  <h2>User Details</h2>
+  <div th:if="${user != null}">
+    <p><strong>User ID:</strong> <span th:text="${user.userId}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+    <p><strong>Phone Number:</strong> <span th:text="${user.phoneNumber}"></span></p>
+    <p><strong>Sports Preferences:</strong> <span th:text="${user.sportsPreferences}"></span></p>
+    <p><strong>Availability Time:</strong> <span th:text="${user.availabilityTime}"></span></p>
+  </div>
+  <div th:unless="${user != null}">
+    <p>No user details available.</p>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>User List</title>
+</head>
+<body>
+
+<header>
+  <h1>User Details</h1>
+</header>
+
+<section layout:fragment="content">
+  <h2>Users</h2>
+  <div class="row">
+    <div class="col-sm-4" th:each="user : ${users}">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${user.name}">Name</h5>
+          <h6 class="card-subtitle text-muted" th:text="${user.email}">Email</h6>
+          <p class="card-text">Phone Number: <span
+              th:text="${user.phoneNumber}">phone number</span>
+          </p>
+          <p class="card-text">Sports Preferences: <span
+              th:each="sport : ${user.sportsPreferences}"
+              th:text="${sport} + ' '"></span></p>
+          <p class="card-text">Availability Time: <span th:text="${user.availabilityTime}">availability time</span>
+          </p>
+
+          <a th:href="@{/user/{id}(id=${user.userId})}" class="btn btn-primary">See user
+            details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

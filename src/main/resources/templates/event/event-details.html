@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Details</title>
+</head>
+<section layout:fragment="content">
+  <body>
+  <div class="row">
+    <div class="col-md-12">
+      <img class="card-img-top mb-3"
+           src="https://media.gq.com/photos/59e76aaaf964810d9a9b8d2f/16:9/w_2560%2Cc_limit/GQ_50Greatest_final_v2.jpg"
+           alt="Card image cap">
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 th:text="${event.eventName}"/>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Event Date:</h5>
+              <p th:text="${event.eventDate}"/>
+            </div>
+            <div class="col-md-6">
+              <h5>Event Time:</h5>
+              <p th:text="${event.eventTime}"/>
+            </div>
+            <div class="col-md-12">
+              <h5>Location:</h5>
+              <p th:text="${event.location}"/>
+            </div>
+            <div class="col-md-12">
+              <h5>Event Description:</h5>
+              <p th:text="${event.eventDescription}"/>
+            </div>
+            <div class="col-md-4">
+              <h5>Rule 1:</h5>
+              <p th:text="${event.rule1}"/>
+            </div>
+            <div class="col-md-4">
+              <h5>Rule 2:</h5>
+              <p th:text="${event.rule2}"/>
+            </div>
+            <div class="col-md-4">
+              <h5>Rule 3:</h5>
+              <p th:text="${event.rule1}"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5>Event attenders:</h5>
+        </div>
+        <div class="card-body">
+          <ul th:each="eventAttender : ${event.eventAttenders}">
+            <li th:text="${eventAttender.name}">username</li>
+          </ul>
+
+          <form th:action="@{/event/join-event/} + ${id}" method="post">
+            <button class="btn btn-primary" type="submit">
+              Join
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</section>
+</html>
